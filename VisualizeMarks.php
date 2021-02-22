@@ -5,6 +5,40 @@
     <title>Estimate GATE 2016 Rank | See How Others Performed | Gateoverflow.in</title>
     <!-- http://www.webgeekly.com/tutorials/jquery/how-to-switch-css-files-on-the-fly-using-jquery/ -->
     <link id="dynamic-css" rel="stylesheet" type="text/css" href="visualizeMarks-dark.css">
+<!------------------------------------------------------------------------------------------------------------------>
+    <style>
+        .multiselect {
+        width: 200px;
+        }
+        .selectBox {
+        position: relative;
+        }
+        .selectBox select {
+        width: 100%;
+        font-weight: bold;
+        }
+        .overSelect {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        }
+        #subjects {
+        display: none;
+        border: 1px #dadada solid;
+        }
+        #subjects label {
+        display: block;
+        margin-bottom: 5px;
+        scroll-margin: 0px;
+        }
+        #subjects label:hover {
+        background-color: #1e90ff;
+        }
+        
+    </style>
+ <!------------------------------------------------------------------------------------------------------------------>
 </head>
 <body>
     <div align="center" id="top-float">
@@ -62,6 +96,31 @@
             </table></td>
             </tr>
         </table>
+
+<!------------------------------------------------------------------------------------------------------------------>
+    <div class="multiselect">
+        <div class="selectBox" onclick="showCheckboxes()">
+          <select>
+            <option>   Select Subjects</option>
+          </select>
+          <div class="overSelect"></div>
+        </div>
+        <div id="subjects">
+          <label for="one">
+            <input type="checkbox" id="one" />Theory of Computation</label>
+          <label for="two">
+            <input type="checkbox" id="two" />Computer Organization</label>
+          <label for="three">
+            <input type="checkbox" id="three" />Compiler Design</label>
+          <label for="four">
+            <input type="checkbox" id="four" />Operating Systems</label>
+          <label for="five">
+            <input type="checkbox" id="five" />Engineering Mathematics</label>
+          <label for="six">
+            <input type="checkbox" id="six" />DBMS</label>
+        </div>
+      </div>
+<!------------------------------------------------------------------------------------------------------------------>
     </div><hr />
     <div align="center">
         <a href="ScoreToColleges.php" id="colleges">Click to <b>View list of IITs and NITs. See which colleges you might get.</b></a>
@@ -160,5 +219,21 @@
         $("#radio<?php if(isset($_GET["set"])){echo $_GET["set"];}else{echo 1;}?>").prop("checked", true);
         do_initialize();
      </script>
+     
+<!------------------------------------------------------------------------------------------------------------------>     
+     <script type="text/javascript">
+            var expanded = false;
+            function showCheckboxes() {
+                var checkboxes = document.getElementById("subjects");
+                if (!expanded) {
+                    checkboxes.style.display = "block";
+                    expanded = true;
+                } else {
+                    checkboxes.style.display = "none";
+                    expanded = false;
+                }
+            }
+     </script>
+<!------------------------------------------------------------------------------------------------------------------>
 </body>
 </html>
